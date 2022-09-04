@@ -1,0 +1,34 @@
+.card-grey-line{
+  margin-top: 10px;
+  background-color: rgb(241, 240, 240);
+  height: 2px;
+  width: 100%;
+}
+
+.center-btn {
+  position: absolute;
+  left: 10px;
+  top: 80px;
+}
+
+.card .mb-3 label{
+  margin-top: 15px;
+}
+
+.addNote-body .card {
+  border: 1px solid #0d6efd;
+  height: 400px;
+  width: 500px;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media only screen and (max-width:600px){
+
+  .addNote-body .card{
+    width: 90%;
+  }
+}

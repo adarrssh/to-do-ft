@@ -1,0 +1,183 @@
+h1{
+  color: black;
+}
+
+.grey-line{
+  background-color: #8789a5;
+  height: 1px;
+}
+
+.heading-search{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heading-search button:hover{
+  cursor: pointer;
+}
+
+.col-md-6 .card{
+  border: 1px solid #0d6efd;
+
+  background-color: #fefefe;
+  color: black;
+}
+
+.card{
+  height: 300px;
+  position: relative;
+}
+
+.card-text{
+  height: 210px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.action-btn{
+  width: 90%;
+  /* margin-right: 10px; */
+  position: absolute;
+  bottom: 10px;
+  height: 40px;
+  background-color: white
+}
+
+
+.action-btn button{
+  /* background-color: white; */
+  border-radius: 4px;
+  width: 70px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.modal-content h5{
+  color: black;
+}
+form{
+  color: black;
+}
+
+#edit-note{
+  border:1px solid #0d6efd;
+  color: #0d6efd;
+}
+
+#addNote:hover{
+cursor: pointer;
+}
+
+#edit-note:hover{
+  background-color: #0d6efd;
+  color: white;
+}
+
+#del-note{
+  color:#dc3545;
+  border:1px solid #dc3545;
+}
+
+#del-note:hover{
+background-color: #dc3545;
+color: white;
+}
+
+
+.placeholder-glow{
+  width: 100%;
+}
+
+@media (min-width:766px) and (max-width:992px){
+
+  #del-note{
+    position: relative;
+    top: 3px;
+    /* margin-top: 4px; */
+  }
+
+  /* .action-btn{
+  width: 90%;
+  margin-right: 10px;
+  position: absolute;
+  bottom: 10px;
+  height: 40px;
+  background-color: white
+} */
+
+.card-text{
+  height: 250px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+  .action-btn{
+    /* background-color: #0d6efd; */
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .action-btn button{
+    width: 50%;
+    height: 100%;
+  }
+
+  #del-note{
+    margin-top: -1px;
+  }
+
+  
+
+  .col-md-6 .card{
+   height: 400px;
+  }
+}
+
+@media (max-width:766px){
+  .col-md-6 .card{
+    height: 400px;
+  }
+
+  .card-text{
+    height: 275px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .heading-search button:hover{
+    cursor: pointer;
+  }
+}
+
+@media (max-width:351px) {
+  .col-md-6 .card{
+    height: 350px;
+  }
+
+  .card-text{
+    height: 275px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+
+}
+
+@media (max-width:210px){
+  .col-md-6 .card{
+    height: 300px;
+  }
+
+  .card-text{
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+
+}

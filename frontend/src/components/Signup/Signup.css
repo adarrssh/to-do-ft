@@ -1,0 +1,145 @@
+.r-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: 20px;
+  
+  }
+  
+  .r-main {
+    height: 500px;
+    width: 500px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0d6efd;
+    position: relative;
+  }
+  
+  .r-heading {
+    font-size: 1.3rem;
+    color: black;
+    position: absolute;
+    top: 5%;
+  }
+
+  .r-heading h1{
+    color: black;
+  }
+  
+  .form-div {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .r-body .form-div input {
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    width: 95%;
+    height: 2.4rem;
+    color: black;
+    border:  1px solid #0d6efd;
+    font-size: 1.2rem;
+  }
+  
+  input:focus {
+    border: 2px solid #0d6efd;
+    outline: none;
+    font-size: 1.2rem;
+  }
+  
+  .submit {
+    margin-top: 1rem;
+    width: 78%;
+    padding: 8px;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  .submit p{
+    margin-top: 10px;
+  }
+
+  .acc-load{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+  
+  .submit:hover {
+    background-color:#0d6efd;
+    color: white
+  }
+  
+  .r-main p{
+    color:black;
+  }
+  
+  .r-main span{
+    color: #0d6efd;
+        cursor: pointer;
+  }
+  
+  
+  
+  @media only screen and (min-height:700px){
+    .r-main{
+        height: 600px;
+    }
+  }
+  
+  @media only screen and (max-height:700px){
+    .r-main{
+        height: 500px;
+    }
+  }
+  
+  /* after screen size 1200px */
+  @media only screen and (min-width:1200px){
+    .r-main{
+        width: 500px;
+    }
+  }
+  
+  @media only screen and (max-width:600px){
+  
+    .r-body{
+        align-items: flex-start;
+    }
+    
+    .r-main{
+        margin-top: 2rem;
+        height: 450px;
+        width: 90%;
+    }
+  }
+  

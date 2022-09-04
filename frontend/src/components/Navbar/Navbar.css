@@ -1,0 +1,220 @@
+
+:root{
+  --color:#8789a5;
+    --red-col:#c83b38;
+    
+    --hover:rgb(70, 64, 64);
+  }
+  
+  .home-body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #212243; */
+    animation: nav-load 600ms ease-in;
+    z-index: 0;
+
+    
+  }
+  
+  .home-navbar{
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    color:var(--color);
+    z-index: 1;
+  }
+  
+  .home-logo{
+    flex: 1;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: var(--color)
+    
+  }
+
+  .n-r{
+    color: var(--red-col);
+  }
+  
+  
+  .home-logo img{
+    height: 50px;
+    width: 60px;
+  }
+  
+  .home-nav{
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color);
+  }
+
+  .home-nav .account-btn{
+    visibility:hidden;
+  }
+
+
+  
+  .home-nav-links:hover{
+    cursor: pointer;
+    color: var(--hover);
+  }
+  
+  .home-account{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  
+
+  .account-btn{
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    color:white;
+    border: none;
+    background: var(--red-col);
+    border-radius: 20px;
+  }
+  
+  .account-btn:hover{
+  color: var(--hover);
+  border:1px solid var(--hover);
+  }
+
+  .nav-greyline{
+    height: 2px;
+    width: 100%;
+    background-color: #8789a5;
+  }
+  
+
+  @keyframes nav-load{
+    0%{
+      transform: translateY(-100%);
+    }
+
+    100%{
+      transform:translateY(0);
+    }
+  }
+ 
+
+  .burger-line{
+    /* visibility: hidden; */
+    display: none !important;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    z-index: 999;
+    
+  }
+
+  .burger-line:hover{
+    cursor: pointer;
+  }
+  
+
+  .rotate-burger{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .lines{
+    background-color: #d15a58;
+    height: 5px;
+    width: 40px;
+    margin-top: 5px;
+  }
+
+  @media only screen and (min-width:1500px){
+
+    .home-navbar{
+      width: 1500px;
+    }
+    .nav-greyline{
+      width: 1500px;
+    }
+  }
+
+  @media only screen and (max-width:900px){
+   
+   
+   
+    .home-body{
+      z-index: 1;
+    }
+
+    .burger-line{
+      display: block !important;
+    }
+
+    .home-navbar{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color:#f1f1f1;
+
+    }
+
+    .h-nav{
+      height: 100px;
+      background-color:#f1f1f1;
+    }
+
+    .v-nav{
+      opacity: 0;
+    }
+
+    .home-account{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color:#f1f1f1;
+
+    }
+    
+    .home-nav{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      background-color:#f1f1f1;
+
+
+    }
+
+    .home-logo{
+      margin-top: 20px;
+      margin-left: 20px;
+      
+
+    }
+
+    .home-nav .home-nav-links{
+      margin-bottom: 5px;
+    }
+
+
+  }

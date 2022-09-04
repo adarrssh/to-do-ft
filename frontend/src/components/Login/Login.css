@@ -1,0 +1,158 @@
+
+.l-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .alert {
+    width: 95%;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .l-main {
+    position: relative;
+    height: 70%;
+    width: 500px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    border: 1px solid #0d6efd;
+  }
+  
+  .l-heading {
+    font-size: 1.3rem;
+    color: #0d6efd;
+    position: absolute;
+    top: 5%;
+
+  }
+
+  .l-heading h1{
+    color: #0d6efd;
+  }
+  
+  .form-div {
+
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inp {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 15px;
+  }
+
+  .acc-load{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .acc-load h1{
+    color: rgb(80, 84, 84);
+  }
+
+  .inp p{
+    margin-top: 10px;
+  }
+  
+  .l-body .form-div input {
+    border: 1px solid #0d6efd;
+    border-radius: 8px;
+    padding: 8px;
+    width: 95%;
+    height: 2.4rem;
+    color: #000;
+    font-size: 1.2rem;
+  }
+  
+  input:focus {
+    border: 2px solid rgb(30, 80, 168);
+    outline: none;
+    font-size: 1.2rem;
+  }
+  
+  .submit {
+    margin-top: 1rem;
+    width: 78%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgb(30, 80, 168);
+    background-color: white;
+    color: rgb(30, 80, 168);;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  .submit:hover {
+    background-color:rgb(30, 80, 168);
+    color:white;
+  }
+  
+  .l-main p {
+    color: black;
+  }
+  
+  .l-main span {
+    color:rgb(30, 80, 168);
+
+    cursor: pointer;
+  }
+  
+  @media only screen and (min-height: 700px) {
+    .l-main {
+      height: 500px;
+    }
+  }
+  
+  @media only screen and (max-height: 700px) {
+    .l-main {
+      height: 500px;
+    }
+  }
+  
+  /* after screen size 1200px */
+  @media only screen and (min-width: 1200px) {
+    .l-main {
+      width: 500px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .l-body {
+      align-items: flex-start;
+    }
+  
+    .l-main {
+      margin-top: 2rem;
+      height: 400px;
+      width: 90%;
+    }
+  }
+  
