@@ -112,6 +112,20 @@ body {
   }
 }
 
+@media (min-width:1501px){
+  
+  body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-main{
+    width:1500px;
+  }
+}
+
 @media (max-width: 900px) {
   .button-anim {
     animation: slideInLeft 800ms ease-in var(--nav-load-time);
