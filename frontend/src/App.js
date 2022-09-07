@@ -11,29 +11,30 @@ import About from './components/About/About';
 import Notes from './components/Notes/Notes';
 import Navbar from './components/Navbar/Navbar';
 import AddNote from './components/AddNote/AddNote';
-
 import { useDispatch,  } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Alert } from './components/Alert/Alert';
 import {getNoteItems} from './features/noteSlice'
-
+import Spinner from './components/Spinner/Spinner';
+import { useSelector } from 'react-redux';
 
 
 function App() {
   const [alert, setAlert] = useState(null);
   const dispatch = useDispatch();
-  // const {notesArray,isLoading}=useSelector((store)=>store.note);
+  const {isLoading}=useSelector((store)=>store.note);
   
   useEffect(()=>{
-    dispatch(getNoteItems());
-    // console.log(notesArray);
+    if(localStorage.getItem("token")){
+      dispatch(getNoteItems());
+      console.log("calling");
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   
-
-  // if(isLoading){
-  //   return <h1> loading</h1>
-  // }
+  if(isLoading){
+    return <Spinner/>
+  }
 
   const showAlert = (message, type) => {
     console.log(alert);

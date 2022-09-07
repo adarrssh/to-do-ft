@@ -2,10 +2,14 @@ import React from 'react'
 import './Login.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getNoteItems } from '../../features/noteSlice';
 import axios from 'axios';
+import Spinner from '../Spinner/Spinner';
 
 
 const Login = (props) => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const Navigate = useNavigate();
   const [user, setUser] = useState({
@@ -17,7 +21,7 @@ const Login = (props) => {
     console.log(loading);
     return (
     <div className='acc-load'>
-      <h1>Loading...</h1>
+      <Spinner/>
     </div>
     )
   }
@@ -44,7 +48,7 @@ const Login = (props) => {
           setLoading(false)
           localStorage.setItem('token', res.data.authtoken)
           props.showAlert("Login Successful", "success")
-
+          dispatch(getNoteItems());
           Navigate('/notes')
         })
         .catch((err) => {

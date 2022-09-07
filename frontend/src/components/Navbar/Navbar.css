@@ -62,11 +62,13 @@
     visibility:hidden;
   }
 
-
+.home-nav-links{
+  font-weight: bold;
+}
   
   .home-nav-links:hover{
     cursor: pointer;
-    color: var(--hover);
+    color: var(--red-col);
   }
   
   .home-account{

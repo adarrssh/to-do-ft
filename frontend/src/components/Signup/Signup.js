@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import "./Signup.css";
-// import Loading from '../Loading/Loading';
+import Spinner from '../Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
 var validator = require("email-validator");
 const Signup = (props) => {
@@ -16,10 +16,9 @@ const Signup = (props) => {
     })
 
     if (loading) {
-      console.log(loading);
       return (
-      <div className='acc-load'>
-        <h1>Loading...</h1>
+      <div>
+        <Spinner/>
       </div>
       )
     }

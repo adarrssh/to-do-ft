@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './Navbar.css'
+import { clearNote } from '../../features/noteSlice';
 const Navbar = (props) => {
+    const dispatch = useDispatch();
     const [navClick, setnavClick] = useState(false)
     const Navigate = useNavigate();
     let Location = useLocation();
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.clear('token');
+        dispatch(clearNote())
         props.showAlert("Logged out","success")
         setnavClick(!navClick)
 
@@ -29,7 +33,7 @@ const Navbar = (props) => {
                     <div>My <span className='n-r'>Notes</span></div>
                 </div>
                 <div className={`home-nav ${navClick ? "" : "h-nav v-nav"}`}>
-                    <div className={`home-nav-links ${Location.pathname === "/home" ? "n-r" : ""}`} onClick={() => {
+                    <div className={`home-nav-links ${Location.pathname ===  ('/home')? "n-r" : ""}`} onClick={() => {
                         Navigate('/home')
                         setnavClick(!navClick)
                     }}>Home</div>

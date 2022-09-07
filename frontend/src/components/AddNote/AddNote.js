@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./AddNote.css";
-
+import { addNoteItem } from '../../features/noteSlice';
+import { useDispatch } from 'react-redux';
 
 const AddNote = (props) => {
+    const dispatch = useDispatch()
     const Navigate = useNavigate();
     const [newNotes, setNewNotes] = useState({ title: "", description: "" });
 
@@ -24,42 +26,19 @@ const AddNote = (props) => {
 
         }else{
 
-            console.log(newNotes.title, newNotes.description);
+            // console.log(newNotes.title, newNotes.description);
             Navigate('/notes')
-            addNotes(newNotes.title, newNotes.description);
+            dispatch(addNoteItem(newNotes))
             setNewNotes({ title: "", description: "" })
         }
     }
 
-
-
-    const addNotes = async (title, description) => {
-       
-
-            const response = await fetch(`https://to-do-bk.herokuapp.com/api/notes/addnote`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    "auth-token": localStorage.getItem('token')
-                },
-                body: JSON.stringify({ title, description })
-            });
-
-            const note = await response.json();
-            props.showAlert("Note successfully added", "success")
-
-            console.log(note);
-            console.log(note.notes[0].notes);
-        
-
-    }
 
     return (
 
         <div className='addNote-body'>
 
             <button className='btn btn-outline-primary center-btn' onClick={() => { Navigate('/notes') }}>Go back to notes</button>
-
 
             {/* <!-- Modal --> */}
             <div className="card">

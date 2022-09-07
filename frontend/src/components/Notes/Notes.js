@@ -5,45 +5,32 @@ import NotesEl from './NotesEl'
 import { useNavigate } from 'react-router-dom'
 import CreateIcon from '@mui/icons-material/Create';
 import LoadNotes from './LoadNotes';
-
-export const heading =()=>{
-        
-}
+import { useDispatch,useSelector } from 'react-redux';
+import { getNoteItems } from '../../features/noteSlice';
+import { deleteNotes,updateNotes } from '../../features/noteSlice';
+import Spinner from '../Spinner/Spinner';
 
 const Notes = (props) => {
-
+    const {notesArray,isLoading} = useSelector((store)=>store.note)
+    const dispatch = useDispatch()
     
     const Navigate = useNavigate()
     const ref = useRef(null)
     const refClose = useRef(null)
-    const url = 'https://to-do-bk.herokuapp.com/api/notes/fetchallnotes'
-    // stores the notes from api
-    const [notes, setNotes] = useState([])
 
     const [updateNote, setUpdateNote] = useState({ id: "", etitle: "", edescription: "" });
 
-
+    
     const onChange = (e) => {
         setUpdateNote({ ...updateNote, [e.target.name]: e.target.value })
     }
 
 
 
+    
     // delte note function
     const delteNote = async (id) => {
-        const response = await fetch(`https://to-do-bk.herokuapp.com/api/notes/deletenote/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token')
-            }
-        });
-        const json = response.json();
-        // console.log(json);
-        props.showAlert("Note successfully deleted", "success")
-        const filterNotes = notes.filter((note) => { return note._id !== id })
-        setNotes(filterNotes)
-
+        dispatch(deleteNotes(id))
     }
 
     // update Note
@@ -52,63 +39,27 @@ const Notes = (props) => {
         const title = updateNote.etitle;
         const description = updateNote.edescription;
         refClose.current.click()
-
-        const response = await fetch(`https://to-do-bk.herokuapp.com/api/notes/updateNote/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token')
-            },
-            body: JSON.stringify({ title, description })
-        });
-
-        const note = await response.json();
-
-        props.showAlert("Note successfully updated", "success")
-
-        setNotes(note[0].notes)
+        dispatch(updateNotes({id:id,title:title,description:description}))
 
     }
-
+    
     const updateNoteEl = async (currentNote) => {
         ref.current.click();
         const { title, description, _id } = currentNote
-        console.log(title, description, _id);
         setUpdateNote({ id: _id, etitle: title, edescription: description })
     }
-
-
-
-    useEffect(() => {
-        if (!localStorage.getItem('token')) {
-            Navigate('/login')
-        } else {
-
-
-            async function calldata(url) {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        "auth-token": localStorage.getItem('token')
-                    }
-                });
-                const json = await response.json()
-                // console.log(json[0].notes);
-                setNotes(json[0].notes)
-            }
-            calldata(url);
-        }
-        // console.log(notes)
-    }, [Navigate])
-
-   
+    
+    
+   useEffect(()=>{
+    if(!localStorage.getItem("token")){
+        Navigate('/login')
+    }
+   },[Navigate])
 
     return (
         <div className="container">
             <div className='row my-3'>
                 <div className='heading-search'>
-                    {/* this butotn is not working */}
                     <button type='button' onClick={() => { 
                         Navigate('/addnote')
                          }} className='btn btn-outline-primary' id='addNote' >
@@ -118,9 +69,9 @@ const Notes = (props) => {
 
                 
                 {
-                    notes.length === 0 ?
+                    notesArray.length === 0 ?
                        <LoadNotes/> :
-                        notes.map((note, key) => {
+                        notesArray.map((note, key) => {
                             return (
                                 <NotesEl key={key} note={note} delteNote={delteNote} updateNoteEl={updateNoteEl} />
                             )
